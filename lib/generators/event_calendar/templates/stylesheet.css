@@ -191,6 +191,10 @@ a.ec-day-link {
   padding-right: 3px;
 }
 
+.ec-event .event {
+  background: grey;
+}
+
 
 /* Left and right arrows */
 /* Doesn't work in IE6, use bg images instead */

@@ -199,19 +199,18 @@ module EventCalendar
                 
                 cal << %(<td class="ec-event-cell" colspan="#{(dates[1]-dates[0]).to_i + 1}" )
                 cal << %(style="padding-top: #{options[:event_margin]}px;">)
-                cal << %(<div class="ec-event ec-event-#{event.id} )
+                cal << %(<div class="ec-event ec-event-#{event.id} #{event.html_class} )
+                cal << %(ec-other-month ) if day < first || day > last
                 if no_bg
                   cal << %(ec-event-no-bg" )
-                  cal << %(style="color: #{event.color}; )
                 else
                   cal << %(ec-event-bg" )
-                  cal << %(style="background-color: #{event.color}; )
                 end
                 cal << %(padding-top: #{options[:event_padding_top]}px; )
                 cal << %(height: #{options[:event_height] - options[:event_padding_top]}px;" )
                 if options[:use_javascript]
                   # custom attributes needed for javascript event highlighting
-                  cal << %(data-event-id="#{event.id}" data-color="#{event.color}" )
+                  cal << %(data-event-id="#{event.id}" )
                 end
                 cal << %(>)
                 
@@ -225,10 +224,7 @@ module EventCalendar
                 end
                 
                 if no_bg
-                  cal << %(<div class="ec-bullet" style="background-color: #{event.color};"></div>)
-                  # make sure anchor text is the event color
-                  # here b/c CSS 'inherit' color doesn't work in all browsers
-                  cal << %(<style type="text/css">.ec-event-#{event.id} a { color: #{event.color}; }</style>)
+                  cal << %(<div class="ec-bullet"></div>)
                 end
                 
                 if block_given?

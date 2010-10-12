@@ -11,11 +11,11 @@ class EventCalendarGenerator < Rails::Generators::Base
   class_option :static_only,  :type => :boolean, :default => false, :desc => "Only generate stylesheets and scripts"
   class_option :use_jquery,   :type => :boolean, :default => false, :desc => "Use JQuery for scripting"
   class_option :use_all_day,  :type => :boolean, :default => false, :desc => "Add an additional 'all_day' attribute"
-  class_option :use_color,    :type => :boolean, :default => false, :desc => "Add an additional 'color' attribute"
+  class_option :use_html_class,    :type => :boolean, :default => false, :desc => "Add an additional 'color' attribute"
   
   def do_it
     say "Adding an all_day column", :yellow if options[:use_all_day]
-    say "Adding a color column", :yellow if options[:use_color]
+    say "Adding an html class column", :yellow if options[:use_html_class]
 
     if options[:use_jquery]
       say "Using JQuery for scripting", :yellow

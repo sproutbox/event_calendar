@@ -7,8 +7,8 @@ class Create<%= table_name.camelize %> < ActiveRecord::Migration
       <%- if options[:use_all_day] -%>
       t.boolean :all_day, :default => false
       <%- end -%>
-      <%- if options[:use_color] -%>
-      t.string :color
+      <%- if options[:use_html_class] -%>
+      t.string :html_class
       <%- end -%>
       
       t.timestamps

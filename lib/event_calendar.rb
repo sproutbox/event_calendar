@@ -141,9 +141,9 @@ module EventCalendar
     def all_day
       self[:all_day]
     end
-    
-    def color
-      self[:color] || '#9aa4ad'
+
+    def html_class
+      self[:html_class] || 'event'
     end
   
     def days
