@@ -154,7 +154,7 @@ module EventCalendar
         cal << %(<table class="ec-row-bg" cellpadding="0" cellspacing="0">)
         cal << %(<tbody><tr>)
         first_day_of_week.upto(first_day_of_week+6) do |day|
-          today_class = (day == Date.today) ? "ec-today-bg" : ""
+          today_class = (day == Date.current) ? "ec-today-bg" : ""
           cal << %(<td class="ec-day-bg #{today_class}">&nbsp;</td>)
         end
         cal << %(</tr></tbody></table>)
@@ -167,7 +167,7 @@ module EventCalendar
         cal << %(<tr>)
         first_day_of_week.upto(last_day_of_week) do |day|
           cal << %(<td class="ec-day-header )
-          cal << %(ec-today-header ) if options[:show_today] and (day == Date.today)
+          cal << %(ec-today-header ) if options[:show_today] and (day == Date.current)
           cal << %(ec-other-month-header ) if (day < first) || (day > last)
           cal << %(ec-weekend-day-header) if weekend?(day)
           cal << %(" style="height: #{options[:day_nums_height]}px;">)

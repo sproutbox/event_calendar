@@ -44,7 +44,7 @@ describe "event calendars" do
         yesterday = DateTime.now - 1.day
         tomorrow  = DateTime.now + 1.day
         event = Event.create(:start_at => yesterday, :end_at => tomorrow)
-        Event.events_for_date_range((Date.today - 1.week ), (Date.today + 1.week)).should eql(
+        Event.events_for_date_range((Date.current - 1.week ), (Date.current + 1.week)).should eql(
           [ event ]
         )
       end
@@ -69,7 +69,7 @@ describe "event calendars" do
         yesterday = DateTime.now - 1.day
         tomorrow  = DateTime.now + 1.day
         event = CustomEvent.create(:custom_start_at => yesterday, :custom_end_at => tomorrow)
-        CustomEvent.events_for_date_range((Date.today - 1.week ), (Date.today + 1.week)).should eql(
+        CustomEvent.events_for_date_range((Date.current - 1.week ), (Date.current + 1.week)).should eql(
           [ event ]
         )
       end
